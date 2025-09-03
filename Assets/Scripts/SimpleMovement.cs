@@ -47,7 +47,7 @@ public class SimpleMovement : MonoBehaviour
     private void Move2()
     {
         _horizontalInput = Input.GetAxis("Horizontal");
-        // print(horizontalInput);
+        print(_horizontalInput);
 
         if (_horizontalInput < 0)
         {
