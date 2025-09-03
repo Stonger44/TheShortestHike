@@ -10,9 +10,13 @@ public class SimpleMovement : MonoBehaviour
     [Space(10)]
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
-    private void Start()
+
+    private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (_spriteRenderer == null)
+        {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
     }
 
     private void Update()
