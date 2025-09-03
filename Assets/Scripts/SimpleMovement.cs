@@ -26,6 +26,23 @@ public class SimpleMovement : MonoBehaviour
 
     private void Move()
     {
+        _horizontalInput = Input.GetAxisRaw("Horizontal");
+        // print(_horizontalInput);
+
+        if (_horizontalInput < 0)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        else if (_horizontalInput > 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+
+        this.transform.Translate(_horizontalInput * (_movementSpeed * Time.deltaTime), 0, 0);
+    }
+
+    private void Move0()
+    {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             _moveDirection = Vector2.left;
@@ -44,20 +61,5 @@ public class SimpleMovement : MonoBehaviour
         this.transform.Translate(_moveDirection * (_movementSpeed * Time.deltaTime));
     }
 
-    private void Move2()
-    {
-        _horizontalInput = Input.GetAxis("Horizontal");
-        print(_horizontalInput);
 
-        if (_horizontalInput < 0)
-        {
-            _spriteRenderer.flipX = true;
-        }
-        else if (_horizontalInput > 0)
-        {
-            _spriteRenderer.flipX = false;
-        }
-
-        this.transform.Translate(_horizontalInput * (_movementSpeed * Time.deltaTime), 0, 0);
-    }
 }
